@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confess - Created by Sonnyvic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            height: 100px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .confessions {
+            margin-top: 20px;
+        }
+        .confession {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SDIHconfessSITE</h1>
+    <p>Leave your confession below</p>
+</header>
+
+<main>
+    <form id="confessionForm">
+        <textarea id="confession" placeholder="Type your confession here..." required></textarea>
+        <button type="submit">Submit Confession</button>
+    </form>
+
+    <div class="confessions" id="confessions"></div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Confess - Created by SonnyvicLozada</p>
+</footer>
+
+<script>
+    const confessionForm = document.getElementById("confessionForm");
+    const confessionsContainer = document.getElementById("confessions");
+
+    confessionForm.onsubmit = function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        const confessionText = document.getElementById("confession").value;
+        
+        // Create a new confession element
+        const confessionDiv = document.createElement("div");
+        confessionDiv.classList.add("confession");
+        confessionDiv.textContent = confessionText;
+
+        // Append the new confession to the container
+        confessionsContainer.prepend(confessionDiv);
+        
+        // Reset the form
+        confessionForm.reset();
+    };
+</script>
+
+</body>
+</html>
